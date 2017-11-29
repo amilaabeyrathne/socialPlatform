@@ -1,0 +1,11 @@
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\bin\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.deps.json
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\bin\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.dll
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\bin\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.pdb
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\bin\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.dll
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\bin\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.pdb
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.csprojResolveAssemblyReference.cache
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.csproj.CoreCompileInputs.cache
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.AssemblyInfoInputs.cache
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.AssemblyInfo.cs
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.dll
+C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Data\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Data.pdb
