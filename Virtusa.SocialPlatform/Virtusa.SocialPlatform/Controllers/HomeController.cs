@@ -15,6 +15,7 @@ using Newtonsoft.Json;
 namespace Virtusa.SocialPlatform.Controllers
 {
     [AllowAnonymous]
+    [Route("api/[controller]")]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -22,6 +23,7 @@ namespace Virtusa.SocialPlatform.Controllers
             return View();
         }
 
+        [HttpPost]
         public string OnInitd()
         {
             var existUser = UserStorage.Users.FirstOrDefault(u => u.Username == "user1" && u.Password == "");
