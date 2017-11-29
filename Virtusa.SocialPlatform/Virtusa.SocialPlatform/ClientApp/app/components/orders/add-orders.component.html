@@ -1,0 +1,112 @@
+﻿<nav class="navbar navbar-light bg-dark ">
+    <div class="container">
+        <div class="btn-group" data-toggle="buttons">
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-primary" [routerLink]="['/admin']">Back <<< </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="display-4 text-center">{{ lblOrderTitle }}</h1>
+
+            <form class="mt-4" #ordersForm="ngForm"(ngSubmit)="onSubmit()">
+               <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputEmployeeNumber">{{lblEmployeeId}}</label>
+                        <input type="text" class="form-control" name="employeeId" [(ngModel)]="orders.employeeId" #employeeId="ngModel" required> <!--placeholder="Ex: Sql"--> 
+                        <div class="alert alert-danger" [hidden]="employeeId.untouched || employeeId.valid"> {{ lblEmployeeId }} is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="T-Shirt Size Detail"></label>
+                        <table class="table table-bordered">
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="align-middle zoom" id="ex1">
+                                            <img src="/dist/assets/t-shirt.png" width="300px" height="400PX">
+                                        </span>
+                                    </td>
+                                    <td class="align-middle">
+
+                                        <img src="/dist/assets/table.jpg" width="400px" height="100PX">
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="lblPrice">{{lblPrice}}</label>
+                        <input type="text" class="form-control" name="totalPrice" [(ngModel)]="orders.totalPrice" #totalPrice="ngModel" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputsize">{{lblSize}}</label>
+                        <select class="form-control" id="size" name="size"
+                                required [(ngModel)]="orders.size" #size="ngModel" >
+                            <option *ngFor="let size of Sizes" [value]="size">{{size}}</option>
+                        </select>
+                        <div class="alert alert-danger" *ngIf="(size.dirty || size.touched) && size.invalid "> {{lblSize}} is required</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputquantity">{{lblQuantity}}</label>
+                        <input type="text" class="form-control" name="quantity" [(ngModel)]="orders.quantity" #quantity="ngModel" required>
+                        <div class="alert alert-danger" [hidden]="quantity.untouched || quantity.valid"> {{ lblQuantity }} is required</div>
+                       
+                    </div>
+                </div>
+
+             <!--   <div class="form-row">  -->
+                <!--     <div class="form-group"> -->
+                    <!--    <label for="inputorderDate">{{lblOrderDate}}</label> -->
+                        <!-- <datepicker [(ngModel)]="news.expireDate" [viewFormat]="'DD/MM/YYYY'" [modelFormat]="'YYYY-MM-DD'"  [id]="'expireDate'" [label]="'Expire Date'"></datepicker> -->
+                      <!--  <owl-date-time type='calendar' autoClose='true' dateFormat='MM/DD/YYYY' placeHolder='MM/DD/YYYY' [(ngModel)]="orders.orderDate" name="orderDate" dataType="string"></owl-date-time>
+                    </div>
+                </div>  -->
+
+                <div class="form-row">
+                    <div class="form-group row">
+
+                        <div class="col-sm-12">
+                            <input type="text" readonly class="form-control-plaintext" value="Rupees: Amount"> <label class="col-form-label">Will deduct from your salary</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" name="checkbox"  type="checkbox" required="checked"> I accept the term and condition.
+                           
+                        </label>
+                        
+                    </div>
+                </div>
+
+                <button type="submit" [disabled]="!ordersForm.valid"  class="btn btn-info">Add Order</button>
+                <button type="reset" class="btn btn-warning">Cancel</button>
+                <br />
+                <br />
+            </form>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>

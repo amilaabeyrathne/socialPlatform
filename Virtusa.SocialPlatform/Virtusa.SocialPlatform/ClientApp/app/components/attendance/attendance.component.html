@@ -1,0 +1,37 @@
+﻿    <!-- filter navigation -->
+<nav class="navbar navbar-light bg-dark ">
+    <div class="container">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active" (click)='sessionClick()'>
+                <input type="radio" name="options" id="optSession" autocomplete="off" checked>Session Attendance
+            </label>
+            <label class="btn btn-primary" (click)='competitionClick()'>
+                <input type="radio" name="options" id="optCompetition" autocomplete="off">Competition Attendance
+            </label>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-primary" [routerLink]="['/admin']">Back <<< </a>
+        </div>
+    </div>
+
+</nav>
+
+<div class="container">
+    <div class="row" *ngIf='attendanceType'>
+        <div class="col-lg-12">
+            <h1 class="text-center display-4">
+                <span class="badge badge-white text-danger">
+                    <i class="fa fa-shield fa-5x" aria-hidden="true"></i>
+                </span>Select Attendance Type First
+            </h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row" *ngIf='isSession'>
+        <attendance-session></attendance-session>
+    </div>
+    <div class="row" *ngIf='isCompetition'>
+        <attendance-competition></attendance-competition>
+    </div>
+</div>

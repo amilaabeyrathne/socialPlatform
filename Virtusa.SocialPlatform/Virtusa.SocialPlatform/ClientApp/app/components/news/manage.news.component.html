@@ -1,0 +1,112 @@
+﻿<nav class="navbar navbar-light bg-dark ">
+    <div class="container">
+        <div class="btn-group" data-toggle="buttons">
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-primary" [routerLink]="['/admin']">Back <<< </a>
+        </div>
+    </div>
+</nav>
+<div class="container" *ngIf="newsFromDB">
+    <div class="panel-body">
+        <div class="table-responsive">
+            <div class='table-responsive'>
+                <table>
+                    <tr>
+                       <th>Title</th>
+                        <th>Category</th>
+                        <th>createdBy</th>
+                        <th>dateCreated</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tbody *ngFor="let newsItem of newsFromDB">
+                        <tr>
+                            <td>{{newsItem.title}}</td>
+                            <td>{{newsItem.category}}</td>
+                            <td>{{newsItem.createdBy}}</td>
+                            <td>{{newsItem.dateCreated}}</td>
+                            <td>
+                                <button title="Edit" class="btn btn-primary" (click)="EditNews(newsItem.id)">Edit</button>
+                                <button title="publish" class="btn btn-primary" (click)="PublishNews(newsItem.id)">Publish</button>
+                                <button title="Delete" class="btn btn-primary" (click)="DeleteNews(newsItem.id)">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<popup #popupforeditnews (confirmClick)="sumbitEdit()" (cancelClick)="cancelEdit()">
+    <form #newsEditForm="ngForm" (ngSubmit)="onSubmit()">
+        <table>
+            <tr>
+                <td>
+                    <label for="title">{{ lbltile }} </label>
+                </td>
+                
+                <td>
+                    <input type="text" class="form-control" name="newstitle" [(ngModel)]="news.title" #newstitle="ngModel" required>
+                    <div class="alert alert-danger" [hidden]="newstitle.untouched || newstitle.valid"> {{ lbltile }} is required</div>
+                </td>
+                
+            </tr>
+            <tr>
+                <td>
+                    <label for="category">{{lblCreatedBy}}</label>
+                </td>
+                <td>
+                    <label for="category">{{ news.createdBy }} </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="category">{{lblCreatedDate}}</label>
+                </td>
+                <td>
+                    <label for="category">{{ news.dateCreated }} </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="content">{{lblCategory}}</label>
+                </td>
+                <td>
+                    <select class="form-control" id="newscategory"
+                            required
+                            [(ngModel)]="news.category" name="newscategory">
+                        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="summary">Summary</label>
+                </td>
+                <td>
+                    <ckeditor name="editor" [(ngModel)]="news.summary" debounce="500" skin="moono-lisa" lang="en" #summary="ngModel" required></ckeditor>   
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Expiry Date</label>
+                </td>
+                <td>
+                    <owl-date-time type='calendar' autoClose="flase" dateFormat='MM/DD/YYYY' placeHolder='MM/DD/YYYY'
+                                   [(ngModel)]="news.expiryDate" name="newsexpiryDate" dataType="string" readonlyInput="false" inline="true"></owl-date-time>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</popup>
+<popup #popupfordelete  (confirmClick)="sumbitDelete()">
+    <h4>Are you sure do you want to delete this record ?</h4>
+</popup>
+
+<popup #popupforpublish (confirmClick)="sumbitPublish()">
+    <h4>Are you sure do you want to publish this news ?</h4>
+</popup>

@@ -1,0 +1,111 @@
+﻿<nav class="navbar navbar-light bg-dark ">
+    <div class="container">
+        <div class="btn-group" data-toggle="buttons">
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-primary" [routerLink]="['/admin']">Back <<< </a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="panel-body">
+        <div class="table-responsive">
+            <div class='table-responsive'>
+                <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addCompetitionPopup('add')">Add</button></div>
+                <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="/dist/assets/loading.gif" width="32" height="32" /> Loading...</div>
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Registration End Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tbody *ngFor="let competition of competitionList">
+                        <tr>
+                            <td>{{competition.name}}</td>
+                            <td>{{competition.type}}</td>
+                            <td>{{competition.description}}</td>
+                            <td>{{competition.registrationEndDate}}</td>
+                            <td>
+                                <button title="Edit" class="btn btn-primary" (click)="editCompetition(competition)">Edit</button>
+                                <button title="Delete" class="btn btn-danger" (click)="delete(competition)">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<popup style="width:100% !important" #popup1>
+
+   <form class="form-group" name="addCompetitionForm" #addCompetitionForm="ngForm"    (ngSubmit)="onSubmit()"  >
+           <table>
+               <tr>
+                   <td>
+                       <label>Name</label>
+                   </td>
+                   <td>
+                       <input type="text" class="form-control " id="name" required [(ngModel)]="competition.name" name="name" #name="ngModel" />
+                       <div class="alert alert-danger" *ngIf="(name.dirty || name.touched) && name.invalid "> Title is required</div>
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <label>Type</label>
+                   </td>
+                   <td>
+                       <select class="form-control" id="power"
+                               required
+                               [(ngModel)]="competition.type" name="power">
+                           <option *ngFor="let com of type" [value]="com">{{com}}</option>
+                       </select>
+
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <label>Description</label>
+                   </td>
+                   <td>
+                       <textarea class="form-control col-sm-12" [(ngModel)]="competition.description" name="descrption"> </textarea>
+                   </td>
+               </tr>
+               <tr>
+                   <td>
+                       <label>Registration End Date</label>
+                   </td>
+                   <td>
+                       <input type="date" class="form-control"
+                              [(ngModel)]="competition.registrationEndDate" name="registrationEndDate" />
+                       <!--<owl-date-time type='calendar' autoClose='true' dateFormat='MM/DD/YYYY' placeHolder='MM/DD/YYYY'
+                                   [(ngModel)]="competition.registrationEndDate" name="registrationEndDate" dataType="string" ></owl-date-time>-->
+                   </td>
+               </tr>
+
+           </table>
+
+           <button type="submit" class="btn btn-success" [disabled]="!addCompetitionForm.valid" *ngIf="!isUpdate" >Add</button>
+           <button type="submit" class="btn btn-success" [disabled]="!addCompetitionForm.valid" *ngIf="isUpdate">Save</button>
+           <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+       </form>
+</popup>
+
+<popup #popup2 (confirmClick)="deleteCompetition()">
+    <div>
+        <span>Are you sure want to delete ?</span>
+    </div>
+</popup>
+
+
+
+
+
+
+
+
+

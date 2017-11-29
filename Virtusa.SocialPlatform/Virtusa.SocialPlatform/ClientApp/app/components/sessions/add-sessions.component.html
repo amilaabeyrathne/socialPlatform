@@ -1,0 +1,38 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="display-4 text-center">{{ lblSessionTitle }}</h1>
+            <form class="mt-4" #sessionForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputSessionName">{{lblSessionName}}</label>
+                        <input type="text" class="form-control" name="sessionName" [(ngModel)]="sessions.sessionName" #sessionName="ngModel" placeholder="Ex: Sql" required>
+                        <div class="alert alert-danger" [hidden]="sessionName.untouched || sessionName.valid"> {{ lblSessionName }} is required</div>
+                    </div>
+                 </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputTrainer">{{lblTrainer}}</label>
+                        <input type="text" class="form-control" name="trainer" [(ngModel)]="sessions.trainer" #trainer="ngModel" required>
+                        <div class="alert alert-danger" [hidden]="trainer.untouched || trainer.valid"> {{ lblTrainer }} is required</div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputSession">{{lblSessionDate}}</label>
+                        <!-- <datepicker [(ngModel)]="news.expireDate" [viewFormat]="'DD/MM/YYYY'" [modelFormat]="'YYYY-MM-DD'"  [id]="'expireDate'" [label]="'Expire Date'"></datepicker> -->
+                        <owl-date-time type='calendar' autoClose='true' dateFormat='MM/DD/YYYY' placeHolder='MM/DD/YYYY' [(ngModel)]="sessions.sessionDate" name="sessionDate" dataType="string"></owl-date-time>
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!sessionForm.valid" class="btn btn-info">Add Session</button>
+                <button type="reset" class="btn btn-warning">Cancel</button>
+                <!--<button (click)='cancelAdd()' class="btn btn-warning">Cancel</button>-->
+                <br />
+                <br />
+            </form>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+

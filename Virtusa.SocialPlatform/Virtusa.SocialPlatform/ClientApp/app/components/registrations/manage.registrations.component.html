@@ -1,0 +1,182 @@
+﻿
+<nav class="navbar navbar-light bg-dark ">
+    <div class="container">
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary active" (click)='individualClick()'>
+                <input type="radio" name="options" id="optIndividual" autocomplete="off" checked>Individual Registration
+            </label>
+            <label class="btn btn-primary" (click)='groupClick()'>
+                <input type="radio" name="options" id="optGroup" autocomplete="off"> Group Registration
+            </label>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-primary" [routerLink]="['/home']">Back <<< </a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="panel-body">
+        <!--<div class="alert alert-info" role="alert" *ngIf="loadingData"><img src="/dist/assets/loading.gif" width="32" height="32" /> Loading...</div>-->
+        <h3 class="display-4 text-center">{{ registrationTitle }}</h3>
+        <div class="table-responsive">
+            <div class='table-responsive'>
+                <!--<div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addUser()">Add</button></div>-->
+                <table>
+                    <tr>
+                        <th>Competition</th>
+                        <th *ngIf="!isGroup">Employee Id</th>
+                        <th *ngIf="!isGroup">Participant</th>
+                        <th>Contact</th>
+                        <th *ngIf="isGroup">Team</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tbody *ngFor="let registration of registrationList">
+                        <tr>
+                            <td>{{registration.competitionName}}</td>
+                            <td *ngIf="!isGroup">{{registration.employeeId}}</td>
+                            <td *ngIf="!isGroup">{{registration.employeeName}}</td>
+                            <td>{{registration.contact}}</td>
+                            <td *ngIf="isGroup"><input type="button" class="btn btn-primary" (click)="EditTeamMember(registration.teamId)" value="{{registration.teamName}}" /></td>
+                            <td>
+                                <button title="Edit" class="btn btn-primary" (click)="EditRegistration(registration.participantId,registration.isGroup )">Edit</button>
+                                <button title="Delete" class="btn btn-danger" (click)="DeleteRegistration(registration.participantId)">Delete</button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<popup #popupforIndividual *ngIf="isIndividual" style="width:100% !important">
+    <form class="form-group" name="individualEditForm" #individualEditForm="ngForm" (ngSubmit)="sumbitEdit()">
+        <table>
+            <tr>
+                <td>
+                    <label for="competition">{{ lblcompetitions }} </label>
+                </td>
+                <td>
+                    <label for="competition">{{ registrations.competitionName }} </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputEmpId">{{lblEmployee}}</label>
+                </td>
+                <td>
+                    <label for="competition">{{ registrations.employeeId }} </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputEmpName">{{lblEmployeeName}}</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="employeeName" [(ngModel)]="registrations.employeeName" #employeeName="ngModel" required>
+                    <div class="alert alert-danger" [hidden]="employeeName.untouched || employeeName.valid"> {{ lblEmployeeName }} is required</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputTier">{{ lbltiers }}</label>
+                </td>
+                <td>
+                    <select class="form-control"
+                            [(ngModel)]="registrations.tierId"
+                            name="tierId"
+                            #tierId="ngModel">
+                        <option *ngFor="let tier of tiers" [ngValue]="tier.id">{{tier.name}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputCegs">{{ lblcegs }} </label>
+                </td>
+                <td>
+                    <select class="form-control"
+                            [(ngModel)]="registrations.cegId"
+                            name="cegId"
+                            #cegId="ngModel">
+                        <option *ngFor="let ceg of cegs" [ngValue]="ceg.id">{{ceg.name}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputContact">{{lblContactNumber}}</label>
+                </td>
+                <td>
+                    <input type="tel" pattern="^\d{10}$" class="form-control" autocomplete="off" [(ngModel)]="registrations.contact" #contact="ngModel" name="contact" required>
+                    <div class="alert alert-danger" [hidden]="contact.untouched || contact.valid" ng-show="contact.$error.pattern">{{ contactValidation }}</div>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <button type="submit" class="btn btn-success" [disabled]="!individualEditForm.valid">Update</button>
+        <button type="button" class="btn btn-danger" (click)="individualEditcancel()">Cancel</button>
+    </form>
+</popup>
+
+<popup #popupforGroup *ngIf="isGroup" style="width:100% !important">
+    <form class="form-group" name="groupEditForm" #groupEditForm="ngForm" (ngSubmit)="sumbitGroupEdit()">
+        <table>
+            <tr>
+                <td>
+                    <label for="competition">{{ lblcompetitions }} </label>
+                </td>
+                <td>
+                    <label for="competition">{{ registrations.competitionName }} </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputTeamName">{{lblTeamName}}</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="teamName" [(ngModel)]="registrations.teamName" #teamName="ngModel" required>
+                    <div class="alert alert-danger" [hidden]="teamName.untouched || teamName.valid"> {{ lblTeamName }} is required</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputContact">{{lblContactNumber}}</label>
+                </td>
+                <td>
+                    <input type="tel" class="form-control" pattern="^\d{10}$" autocomplete="off" [(ngModel)]="registrations.contact" #contact="ngModel" name="contact" required>
+                    <div class="alert alert-danger" [hidden]="contact.untouched || contact.valid" ng-show="contact.$error.pattern">{{contactValidation}}</div>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <button type="submit" class="btn btn-success" [disabled]="!groupEditForm.valid">Update</button>
+        <button type="button" class="btn btn-danger" (click)="groupEditcancel()">Cancel</button>
+    </form>
+</popup>
+
+<popup #popupforelete *ngIf="isIndividual" (confirmClick)="sumbitDelete()">
+    <h4>Are you sure do you want to delete this record ?</h4>
+</popup>
+
+<popup #popupforTeamEdit style="width:100% !important">
+    <form class="form-group" name="teamEditForm" #teamEditForm="ngForm" (ngSubmit)="sumbitEditTeam()" novalidate>
+        <div class="form-row">
+            <label for="InputTeamMembers">{{ lblTeamMembers }}</label>
+            <div class="form-group col-md-12">
+                <fieldset *ngFor="let teamMember of participants">
+                    <input type="text" name="" class="form-group col-md-3" [(ngModel)]="teamMember.employeeId" [ngModelOptions]="{standalone: true}" placeholder="Employee Id" required>
+                    <input type="text" name="" class="form-group col-md-7" [(ngModel)]="teamMember.employeeName" [ngModelOptions]="{standalone: true}" placeholder="Employee Name">
+                    <button type="button" class="btn btn-danger" (click)="removeMember(participants.indexOf(teamMember))">x</button>
+                </fieldset>
+                <button type="button" class="btn btn-success" (click)="addNewMember()">Add Team Members</button>
+            </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success" [disabled]="!teamEditForm.valid">Team Update</button>
+        <button type="button" class="btn btn-danger" (click)="teamEditcancel()">Cancel</button>
+    </form>
+</popup>
+
+

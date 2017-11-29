@@ -1,0 +1,153 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Content Remove="ClientApp\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\app\components\admin\admin.component.ts" />
+    <None Remove="ClientApp\app\components\attendance\attendance.competition.component.ts" />
+    <None Remove="ClientApp\app\components\attendance\attendance.component.ts" />
+    <None Remove="ClientApp\app\components\attendance\attendance.interface.ts" />
+    <None Remove="ClientApp\app\components\attendance\attendance.service.ts" />
+    <None Remove="ClientApp\app\components\attendance\attendance.session.component.ts" />
+    <None Remove="ClientApp\app\components\home\home.service.ts" />
+    <None Remove="ClientApp\app\components\home\RequestResult.ts" />
+    <None Remove="ClientApp\app\components\news\manage.news.component.ts" />
+    <None Remove="ClientApp\app\components\news\news-detail.component.ts" />
+    <None Remove="ClientApp\app\components\news\news.component.ts" />
+    <None Remove="ClientApp\app\components\news\news.interface.ts" />
+    <None Remove="ClientApp\app\components\news\news.service.ts" />
+    <None Remove="ClientApp\app\components\news\news.ts" />
+    <None Remove="ClientApp\app\components\orders\orders.service.ts" />
+    <None Remove="ClientApp\app\components\registrations\manage.registrations.component.ts" />
+    <None Remove="ClientApp\app\components\registrations\registrations.constants.ts" />
+    <None Remove="ClientApp\app\components\sessions\add-sessions.component.ts" />
+    <None Remove="ClientApp\utility\sanitizing.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\images\img-news1.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\img-news2.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\img-news3.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\img-news4.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\img-news5.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\img_com1.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\news-banner-1900x350.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\nw-home-img-1.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\nw-home-img-2.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="ClientApp\images\nw-home-img-3.png">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Virtusa.SocialPlatform.Business\Virtusa.SocialPlatform.Business.csproj" />
+    <ProjectReference Include="..\Virtusa.SocialPlatform.Common\Virtusa.SocialPlatform.Common.csproj" />
+    <ProjectReference Include="..\Virtusa.SocialPlatform.Data\Virtusa.SocialPlatform.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\admin\admin.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\attendance\attendance.competition.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\attendance\attendance.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\attendance\attendance.interface.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\attendance\attendance.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\attendance\attendance.session.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\competition\add-competition.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\competition\competition.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\competition\competition.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\competition\competition.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\home\home.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\home\RequestResult.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\news\manage.news.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\news\news-detail.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\news\news.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\news\news.interface.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\news\news.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\news\news.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\orders\orders.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\registrations\registrations.constants.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sessions\add-sessions.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sessions\sessions.interface.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\sessions\sessions.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\registrations\manage.registrations.component.ts" />
+    <TypeScriptCompile Include="ClientApp\utility\common.constants.ts" />
+    <TypeScriptCompile Include="ClientApp\utility\sanitizing.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\app\components\excelexport\" />
+  </ItemGroup>
+
+  <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
+    <!-- Ensure Node.js is installed -->
+    <Exec Command="node --version" ContinueOnError="true">
+      <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
+    </Exec>
+    <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
+
+    <!-- In development, the dist files won't exist on the first run or when cloning to
+         a different machine, so rebuild them if not already present. -->
+    <Message Importance="high" Text="Performing first-run Webpack build..." />
+    <Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js" />
+    <Exec Command="node node_modules/webpack/bin/webpack.js" />
+  </Target>
+
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
+    <Exec Command="npm install" />
+    <Exec Command="node node_modules/webpack/bin/webpack.js --config webpack.config.vendor.js --env.prod" />
+    <Exec Command="node node_modules/webpack/bin/webpack.js --env.prod" />
+
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="wwwroot\dist\**; ClientApp\dist\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+</Project>

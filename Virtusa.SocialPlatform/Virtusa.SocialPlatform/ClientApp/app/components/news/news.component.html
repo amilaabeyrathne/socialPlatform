@@ -1,0 +1,84 @@
+﻿<!--<nav class="navbar navbar-light bg-dark ">
+    <div class="container justify-content-end">
+        <div class="btn-group">
+            <button class="btn btn-danger btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                News Filter
+            </button>
+            <div class="dropdown-menu dropdown-menu-left">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+            </div>
+        </div>
+    </div>
+</nav>-->
+<!-- Page Content 1-->
+<!-- /.container -->
+<nav class="navbar navbar-light bg-dark ">
+    <div class="container">
+        <div class="btn-group" data-toggle="buttons">
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-primary" [routerLink]="['/home']">Back <<< </a>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid" *ngFor="let newsItem of newsFromDB; let odd=odd;let even=even">
+
+    <div *ngIf="odd" class="row">
+        <div class="col-lg-12 new-wrapper">
+
+            <div class="row my-4 justify-content-center no-gutters align-middle">
+
+                <div class="col-sm-12 col-md-12 col-lg-8 order-1 order-sm-1 order-md-1 order-lg-1" style="border-radius: 0px !important;">
+                    <div class="card bg-dark text-white card-custom-details">
+                        <img class="card-img news-back-img" src="/dist/assets/img-news5.png" alt="Card image">
+
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4 pl-4 pt-1 pr-4 pb-4 bg-white order-2 order-sm-2 order-md-2 order-lg-2">
+                    <h3 class="text-success text-uppercase text-center display-3">{{newsItem.title}}</h3>
+                    <p class="text-center pt-2"><span [innerHTML]="newsItem.summary | sanitizeHtml"></span></p>
+                    <p class="text-center">
+                        <a href="/news-detail/{{newsItem.id}}" class="text-danger" target="_blank">Read More</a>
+                    </p>
+                </div>
+
+            </div>
+            <!-- /.row -->
+        </div>
+
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div *ngIf="even" class="row">
+
+        <div class="col-lg-12 new-wrapper">
+
+            <div class="row my-4 justify-content-center no-gutters align-middle">
+                <div class="col-sm-12 col-md-12 col-lg-4 pl-4 pt-1 pr-4 pb-4 bg-white order-2 order-sm-2 order-md-2 order-lg-1">
+                    <h3 class="text-success text-uppercase text-center display-3">{{newsItem.title}}</h3>
+                    <p class="text-center pt-2"><span [innerHTML]="newsItem.summary | sanitizeHtml"></span></p>
+                    <p class="text-center"><a href="/news-detail/{{newsItem.id}}" class="text-danger" target="_blank">Read More</a></p>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-8  order-1 order-sm-1 order-md-1 order-lg-2" style="border-radius: 0px !important;">
+                    <div class="card bg-dark text-white card-custom-details">
+                        <img class="card-img news-back-img" src="/dist/assets/img-news3.png" alt="Card image">
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+
+
+
+
+
+

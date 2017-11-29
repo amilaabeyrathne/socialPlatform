@@ -1,0 +1,139 @@
+﻿<nav class="navbar navbar-light bg-dark ">
+    <div class="container">
+        <div class="btn-group" data-toggle="buttons">
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-primary" [routerLink]="['/admin']">Back <<< </a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center display-4">
+                <span class="badge badge-white text-danger">
+                    <i class="fa fa-shield fa-5x" aria-hidden="true"></i>
+                </span>Sessions
+            </h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="panel-body" *ngIf='isManageSession'>
+        <div class="table-responsive">
+            <div class='table-responsive'>
+                <!--<div style="padding-bottom:10px">
+                    <button class='btn btn-primary' (click)='addSessionClick()'>Add Session</button>
+                </div>-->
+                <div style="padding-bottom:10px"><button class="btn btn-primary" (click)="addSessionPopup('add')">Add</button></div>
+
+                <div class="alert alert-info" role="alert" *ngIf="indLoading"><img src="/dist/assets/loading.gif" width="32" height="32" /> Loading...</div>
+                <table class='table table-striped'>
+                    <tr>
+                        <th>Session Name</th>
+                        <th>Trainer</th>
+                        <th>Session Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tbody *ngFor="let session of sessionList">
+                        <tr>
+                            <td>{{session.sessionName}}</td>
+                            <td>{{session.trainer}}</td>
+                            <td>{{session.sessionDate}}</td>
+                            <td>
+                                <button title="Edit" class="btn btn-primary" (click)="editSession(session.id)">Edit</button>
+                                <button title="Delete" class="btn btn-danger" (click)="delete(session.id)">Delete</button>
+
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" *ngIf='isAddSession'>
+        <add-sessions></add-sessions>
+    </div>
+
+</div>
+
+<popup style="width:100% !important" #sessionAddpop>
+    <form class="form-group" name="addSessionForm" #addSessionForm="ngForm" (ngSubmit)="onSubmit()">
+        <table>
+            <tr>
+                <td>
+                    <label for="inputSessionName">{{lblSessionName}}</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="sessionName" [(ngModel)]="sessions.sessionName" #sessionName="ngModel" placeholder="Ex: Sql" required>
+                    <div class="alert alert-danger" [hidden]="sessionName.untouched || sessionName.valid"> {{ lblSessionName }} is required</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputTrainer">{{lblTrainer}}</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="trainer" [(ngModel)]="sessions.trainer" #trainer="ngModel" required>
+                    <div class="alert alert-danger" [hidden]="trainer.untouched || trainer.valid"> {{ lblTrainer }} is required</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputSession">{{lblSessionDate}}</label>
+                </td>
+                <td>
+                    <!--<owl-date-time [(ngModel)]="input2Moment"
+                                   [dateFormat]="'YYYY-MM-DD'"
+                                   [type]="'calendar'" [placeHolder]="'yyyy/mm/dd'"
+                                   [inputId]="'input2'"></owl-date-time>-->
+                    <owl-date-time type='calendar' autoClose='true' dateFormat='MM/DD/YYYY' placeHolder='MM/DD/YYYY' [(ngModel)]="sessions.sessionDate" name="sessionDate" dataType="string"></owl-date-time>
+                </td>
+            </tr>
+        </table>
+
+        <button type="submit" class="btn btn-success" [disabled]="!addSessionForm.valid">Add</button>
+        <button type="reset" class="btn btn-danger" (click)="cancel()">Cancel</button>
+    </form>
+</popup>
+
+<popup #sessionEditpop (confirmClick)="sumbitEdit()" (cancelClick)="cancelEdit()">
+    <!--<form class="form-group" name="editSessionForm" #editSessionForm="ngForm" >-->
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <label for="inputSessionName">{{lblSessionName}}</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="sessionName" [(ngModel)]="sessions.sessionName" #sessionName="ngModel" placeholder="Ex: Sql" required>
+                    <div class="alert alert-danger" [hidden]="sessionName.untouched || sessionName.valid"> {{ lblSessionName }} is required</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputTrainer">{{lblTrainer}}</label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="trainer" [(ngModel)]="sessions.trainer" #trainer="ngModel" required>
+                    <div class="alert alert-danger" [hidden]="trainer.untouched || trainer.valid"> {{ lblTrainer }} is required</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="inputSession">{{lblSessionDate}}</label>
+                </td>
+                <td>
+                    <owl-date-time type='calendar' autoClose='true' dateFormat='MM/DD/YYYY' placeHolder='MM/DD/YYYY' [(ngModel)]="sessions.sessionDate" name="sessionDate" dataType="string"></owl-date-time>
+                </td>
+            </tr>
+        </table>
+    </form>
+</popup>
+
+<popup #sessionDeletepop (confirmClick)="deleteSession()">
+    <div>
+        <span>Are you sure want to delete ?</span>
+    </div>
+</popup>
