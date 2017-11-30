@@ -9,3 +9,13 @@ C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-
 C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.dll
 C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.pdb
 C:\Users\Amila-Lap\Documents\Visual Studio 2017\Projects\WebApplication1\Social-Platform2\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.csprojResolveAssemblyReference.cache
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\bin\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.deps.json
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\bin\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.dll
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\bin\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.pdb
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.CommonResource.resources
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.csproj.GenerateResource.Cache
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.csproj.CoreCompileInputs.cache
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.AssemblyInfoInputs.cache
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.AssemblyInfo.cs
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.dll
+C:\Users\auabeyrathne\Desktop\test\Virtusa.SocialPlatform\Virtusa.SocialPlatform.Common\obj\Debug\netstandard2.0\Virtusa.SocialPlatform.Common.pdb
