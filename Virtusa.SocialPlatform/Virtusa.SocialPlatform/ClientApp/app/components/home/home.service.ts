@@ -22,7 +22,8 @@ export class HomeService {
 
     constructor(
         private http: Http, @Inject('BASE_URL') private originUrl: string
-    ) { }
+    ) {
+    }
 
     login(): Promise<RequestResult> {
         return this.http.post(this.originUrl + "/api/Home", this.options).toPromise()

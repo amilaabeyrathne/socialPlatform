@@ -15,7 +15,6 @@ using Newtonsoft.Json;
 namespace Virtusa.SocialPlatform.Controllers
 {
     [AllowAnonymous]
-    [Route("api/[controller]")]
     public class HomeController : Controller
     {
         public IActionResult Index()

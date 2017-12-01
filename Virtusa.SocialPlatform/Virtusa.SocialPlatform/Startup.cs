@@ -67,20 +67,24 @@ namespace Virtusa.SocialPlatform
             services.AddScoped<IExcelExxportDataAccess, ExcelExxportDataAccess>();
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
 
-            // Enable the use of an [Authorize("Bearer")] attribute on methods and classes to protect.
-            //services.AddAuthorization(auth =>
-            //{
-            //    auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
-            //        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
-            //        .RequireAuthenticatedUser().Build());
-            //});
-
+            //Enable the use of an[Authorize("Bearer")] attribute on methods and classes to protect.
+         
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
-                options.Audience = "http://localhost:5001/";
-                options.Authority = "http://localhost:5000/";
+                options.Audience = "http://localhost:51219/";
+                options.Authority = "http://localhost:51219/";
+                options.RequireHttpsMetadata = false;
             });
+
+            services.AddAuthorization(auth =>
+            {
+                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme‌​)
+                    .RequireAuthenticatedUser().Build());
+            });
+
+
 
         }
 
@@ -141,6 +145,8 @@ namespace Virtusa.SocialPlatform
             #region UseJwtBearerAuthentication
 
             app.UseAuthentication();
+
+            app.UseCors("AllowAllOrigins");
 
             #endregion
 
