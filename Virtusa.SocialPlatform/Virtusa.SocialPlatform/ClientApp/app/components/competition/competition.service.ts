@@ -23,11 +23,16 @@ export class CompetitionService {
     private deleteUrl = 'api/Competition/';
     private id: number;
 
+    private token: any ;
+    private tokeyKey = "token";
+
     constructor(private http: Http, @Inject('BASE_URL') private originUrl: string) { }
 
     //Get All competition Items
-    getCompetition(): Promise<Competition[]> {
-        return this.http.get(this.originUrl + this.competitionUrl, this.options)
+    getCompetition(): Promise<Competition[]> 
+    {
+        let headers = this.initAuthHeaders();
+        return this.http.get(this.originUrl + this.competitionUrl, { headers: headers })
             .toPromise()
             .then(response =>
                 response.json() as Competition[]
@@ -63,6 +68,25 @@ export class CompetitionService {
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
+    }
+
+    private initAuthHeaders(): Headers {
+        let token = this.getLocalToken();
+        if (token == null) throw "No token";
+
+        var headers = new Headers();
+        headers.append("Authorization", "Bearer " + token);
+
+        return headers;
+    }
+
+
+    private getLocalToken(): string {
+        if (!this.token) {
+
+            this.token = sessionStorage.getItem(this.tokeyKey);
+        }
+        return this.token;
     }
 
 }

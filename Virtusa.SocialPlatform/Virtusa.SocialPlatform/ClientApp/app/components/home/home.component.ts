@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
+import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 import { HomeService } from "./home.service";
 
@@ -13,15 +14,19 @@ import { HomeService } from "./home.service";
 export class HomeComponent {
 
     constructor(private homeService: HomeService, private router: Router) {
+        //debugger;
+        //this.ngoninit();
+        //this.test();
     }
 
-    ngOnInit(): void {
-        debugger;
+    test(): void {
+        //debugger;
+        //this.homeService.test();
         this.homeService
             .login()
             .then(result => {
                 if (result.State == 1) {
-                    this.router.navigate(["./home"]);
+                    this.router.navigate(["./admin"]);
                 }
                 else {
                     alert(result.Msg);

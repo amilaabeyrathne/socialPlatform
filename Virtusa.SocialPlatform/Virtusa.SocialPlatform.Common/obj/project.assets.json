@@ -1943,7 +1943,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\auabeyrathne\\.nuget\\packages\\": {},
+    "C:\\Users\\Amila-Lap\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -1952,17 +1952,17 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\auabeyrathne\\Desktop\\test\\Virtusa.SocialPlatform\\Virtusa.SocialPlatform.Common\\Virtusa.SocialPlatform.Common.csproj",
+      "projectUniqueName": "C:\\Users\\Amila-Lap\\Desktop\\dup\\Virtusa.SocialPlatform\\Virtusa.SocialPlatform.Common\\Virtusa.SocialPlatform.Common.csproj",
       "projectName": "Virtusa.SocialPlatform.Common",
-      "projectPath": "C:\\Users\\auabeyrathne\\Desktop\\test\\Virtusa.SocialPlatform\\Virtusa.SocialPlatform.Common\\Virtusa.SocialPlatform.Common.csproj",
-      "packagesPath": "C:\\Users\\auabeyrathne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\auabeyrathne\\Desktop\\test\\Virtusa.SocialPlatform\\Virtusa.SocialPlatform.Common\\obj\\",
+      "projectPath": "C:\\Users\\Amila-Lap\\Desktop\\dup\\Virtusa.SocialPlatform\\Virtusa.SocialPlatform.Common\\Virtusa.SocialPlatform.Common.csproj",
+      "packagesPath": "C:\\Users\\Amila-Lap\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Amila-Lap\\Desktop\\dup\\Virtusa.SocialPlatform\\Virtusa.SocialPlatform.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\auabeyrathne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Amila-Lap\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

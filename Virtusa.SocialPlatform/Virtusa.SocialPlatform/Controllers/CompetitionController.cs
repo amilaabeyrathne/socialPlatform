@@ -32,6 +32,7 @@ namespace Virtusa.SocialPlatform.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Authorize("Bearer")]
         public IEnumerable<CompetitionModel> Get()
         {
             List< CompetitionModel > list = competitionBusiness.GetAll();

@@ -32,6 +32,9 @@ export class CompetitionComponent implements OnInit {
     competitionEdit: Competition;
     isUpdate: boolean = false;
 
+    
+
+
     modalParams = {
         add: 'add',
         edit: 'edit'
@@ -42,6 +45,7 @@ export class CompetitionComponent implements OnInit {
     }
 
     ngOnInit(): void {
+
         this.indLoading = true;
         this.competitionService
             .getCompetition()
@@ -50,6 +54,7 @@ export class CompetitionComponent implements OnInit {
                 this.indLoading = false;
             });
     }
+
 
     addCompetitionPopup(parm: string) {
         this.competition = new Competition();
